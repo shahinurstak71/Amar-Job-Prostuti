@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:project/units/const.dart';
+
+import '../../../units/const.dart';
+
+
 
 class FirstOnBoarding extends StatelessWidget {
   const FirstOnBoarding({Key? key}) : super(key: key);

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 class AppDetails {
   // String Section //
+  String appName = 'আমার চাকরি';
   String headerText = 'বিসিএস, ব্যাংকসহ সকল সরকারি চাকরি পরীক্ষার প্রস্তুতি ও লাইভ মডেল টেস্ট এখন এক অ্যাপএ !';
   String noticeText = 'আমাদের অ্যাপ থেকে কোন কোর্স কিনতে সমস্যা হলে কল করুন এই নাম্বারেঃ ০১৭৫৮-১৯৫৩২৪ !!!';
-  String noticeTicker = '   Notice';
-  String examButtonText = 'Free Exam';
+  String selectCategory = '✨ ক্যাটাগরি নির্বাচন করুন ✨';
+  String examButtonText = 'বিনামূল্যে পরীক্ষা দিন';
 
   // Image Section //
   String noticeImage = 'assets/icons/notice.png';
@@ -18,9 +19,11 @@ class AppDetails {
 
 
   // Color Section //
-  Color mainColor = Colors.deepOrange;
+  Color mainColor1 = Colors.deepPurple;
+  Color mainColor2 = Colors.purple;
   Color white = Colors.white;
   Color black = Colors.black;
+  Color focusColor = Color(0xFFF331E61);
 
   // OnBoarding Text //
   String onBoardTitle_1 = 'Test your knowledge';
