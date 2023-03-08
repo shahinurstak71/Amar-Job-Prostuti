@@ -1,5 +1,6 @@
 import 'package:amar_jobprostuti/data/category_data.dart';
 import 'package:amar_jobprostuti/units/const.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/custom_app_bar.dart';
@@ -85,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                       height: 60,
                     ),
                     SizedBox(
-                      height: 620,
+                      height: 600,
                       child: GridView.builder(
                         clipBehavior: Clip.none,
                         physics: const NeverScrollableScrollPhysics(),
@@ -191,6 +192,65 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ),
+      ),
+      //
+      //
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        onPressed: (){},
+        child: Icon(Icons.home, size: 30,),),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(
+                color: Colors.white
+            ),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.white.withOpacity(0.3),
+                  blurRadius: 3,
+                  spreadRadius: 0.1)
+            ],
+            gradient: const LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Colors.purple,
+                Colors.deepPurpleAccent,
+              ],
+            ),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: 36,
+                width: 36,
+                child: Image.asset('assets/icons/home.png', color: Colors.white,),
+              ),
+              SizedBox(
+                height: 36,
+                width: 36,
+                child: Image.asset('assets/icons/home.png', color: Colors.white,),
+              ),
+              SizedBox(
+                height: 36,
+                width: 36,
+                child: Image.asset('assets/icons/home.png', color: Colors.white,),
+              ),
+              SizedBox(
+                height: 36,
+                width: 36,
+                child: Image.asset('assets/icons/home.png', color: Colors.white,),
+              ),
+            ],
           ),
         ),
       ),

@@ -1,3 +1,8 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class AppDetails {
   // String Section //
@@ -33,5 +38,6 @@ class AppDetails {
   String onBoardTitle_3 = '';
   String onBoardSubTitle_3 = '';
 
+  // Style Section
 
 }
