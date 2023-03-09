@@ -1,7 +1,7 @@
 import 'package:amar_jobprostuti/data/category_data.dart';
 import 'package:amar_jobprostuti/units/const.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../widgets/custom_app_bar.dart';
 
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // Slider Start //
                     Container(
-                      height: 100,
+                      height: 70,
                       width: mediaSize.width,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                           style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontSize: 15),
                         )),
                       ),
                     ),
@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                          fontSize: 25),
                     ),
                     const SizedBox(
                       height: 60,
@@ -93,6 +93,7 @@ class HomeScreen extends StatelessWidget {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
+                                childAspectRatio: 1.1,
                                 crossAxisSpacing: 30,
                                 mainAxisSpacing: 30),
                         itemCount: 6,
@@ -133,8 +134,8 @@ class HomeScreen extends StatelessWidget {
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),
                                         child: Container(
-                                          height: 120,
-                                          width: 120,
+                                          height: 85,
+                                          width: 85,
                                           decoration: const BoxDecoration(
                                               color: Colors.white,
                                               shape: BoxShape.circle),
@@ -143,10 +144,9 @@ class HomeScreen extends StatelessWidget {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              child: Image.asset(
-                                                categoryList[index]['icon'],
-                                                width: 110,
-                                                fit: BoxFit.contain,
+                                              child: Lottie.asset(categoryList[index]['image'],
+
+                                                  fit: BoxFit.contain,
                                               ),
                                             ),
                                           ),
@@ -157,8 +157,8 @@ class HomeScreen extends StatelessWidget {
                                   Positioned(
                                     bottom: 10,
                                     child: Container(
-                                      height: 35,
-                                      width: 150,
+                                      height: 25,
+                                      width: 120,
                                       decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
@@ -175,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                                           style: const TextStyle(
                                               color: Colors.purple,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 20),
+                                              fontSize: 12),
                                         ),
                                       ),
                                     ),
@@ -196,64 +196,66 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       //
+      // //
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: Colors.red,
+      //   onPressed: (){},
+      //   child: Icon(Icons.home, size: 30,),),
       //
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
-        onPressed: (){},
-        child: Icon(Icons.home, size: 30,),),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 24),
-          padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(
-                color: Colors.white
-            ),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.white.withOpacity(0.3),
-                  blurRadius: 3,
-                  spreadRadius: 0.1)
-            ],
-            gradient: const LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.purple,
-                Colors.deepPurpleAccent,
-              ],
-            ),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 36,
-                width: 36,
-                child: Image.asset('assets/icons/home.png', color: Colors.white,),
-              ),
-              SizedBox(
-                height: 36,
-                width: 36,
-                child: Image.asset('assets/icons/home.png', color: Colors.white,),
-              ),
-              SizedBox(
-                height: 36,
-                width: 36,
-                child: Image.asset('assets/icons/home.png', color: Colors.white,),
-              ),
-              SizedBox(
-                height: 36,
-                width: 36,
-                child: Image.asset('assets/icons/home.png', color: Colors.white,),
-              ),
-            ],
-          ),
-        ),
-      ),
+      // bottomNavigationBar: SafeArea(
+      //
+      //   child: Container(
+      //     margin: EdgeInsets.symmetric(horizontal: 24),
+      //     padding: EdgeInsets.all(12),
+      //     decoration: BoxDecoration(
+      //       borderRadius: BorderRadius.circular(30),
+      //       border: Border.all(
+      //           color: Colors.white
+      //       ),
+      //       boxShadow: [
+      //         BoxShadow(
+      //             color: Colors.white.withOpacity(0.3),
+      //             blurRadius: 3,
+      //             spreadRadius: 0.1)
+      //       ],
+      //       gradient: const LinearGradient(
+      //         begin: Alignment.topRight,
+      //         end: Alignment.bottomLeft,
+      //         colors: [
+      //           Colors.purple,
+      //           Colors.deepPurpleAccent,
+      //         ],
+      //       ),
+      //     ),
+      //     child: Row(
+      //       crossAxisAlignment: CrossAxisAlignment.center,
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [
+      //         SizedBox(
+      //           height: 36,
+      //           width: 36,
+      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
+      //         ),
+      //         SizedBox(
+      //           height: 36,
+      //           width: 36,
+      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
+      //         ),
+      //         SizedBox(
+      //           height: 36,
+      //           width: 36,
+      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
+      //         ),
+      //         SizedBox(
+      //           height: 36,
+      //           width: 36,
+      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

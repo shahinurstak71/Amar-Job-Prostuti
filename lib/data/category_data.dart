@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+
 List categoryList = [
-  {'icon': 'assets/iconNew/bag.png', 'label': 'বিএসসি',},
-  {'icon': 'assets/iconNew/bank.png', 'label': 'ব্যাংক',},
-  {'icon': 'assets/iconNew/primary.png', 'label': 'প্রাইমারী',},
-  {'icon': 'assets/iconNew/teacher.png', 'label': 'শিক্ষক নিবন্ধন',},
-  {'icon': 'assets/iconNew/solution22.png', 'label': 'জব সলিউশন ২২',},
-  {'icon': 'assets/iconNew/solution23.png', 'label': 'জব সলিউশন ২৩',},
+  {'image': 'assets/json/bcs.json', 'label': 'বিসিএস',},
+  {'image': 'assets/json/bank.json', 'label': 'ব্যাংক',},
+  {'image': 'assets/json/primary.json', 'label': 'প্রাইমারী',},
+  {'image': 'assets/json/register.json', 'label': 'শিক্ষক নিবন্ধন',},
+  {'image': 'assets/json/solution_1.json', 'label': 'জব সলিউশন ২২',},
+  {'image': 'assets/json/solution_2.json', 'label': 'জব সলিউশন ২৩',},
 ];
