@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
     final mediaSize = MediaQuery.of(context).size;
     final AppDetails data = AppDetails();
     return Scaffold(
+
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -25,8 +26,7 @@ class HomeScreen extends StatelessWidget {
             ),
             // This is Image
             image: DecorationImage(
-                image: NetworkImage(
-                    'https://preview.redd.it/k35gae3somo41.png?auto=webp&s=07154e8f6b16a8480a5106f2cd62d3f12197f061'),
+                image: AssetImage('assets/images/k35gae3somo41.png'),
                 fit: BoxFit.fill,
                 opacity: 0.7)),
         child: SafeArea(
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                           style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              fontSize: 17),
                         )),
                       ),
                     ),
@@ -85,108 +85,110 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(
                       height: 60,
                     ),
-                    SizedBox(
-                      height: 600,
-                      child: GridView.builder(
-                        clipBehavior: Clip.none,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 1.1,
-                                crossAxisSpacing: 30,
-                                mainAxisSpacing: 30),
-                        itemCount: 6,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 30.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.white, width: 2),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    blurRadius: 6,
-                                  )
-                                ],
-                                color: data.mainColor1,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Stack(
-                                clipBehavior: Clip.none,
-                                alignment: Alignment.center,
-                                children: [
-                                  Positioned(
-                                    top: -50,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.black
-                                                    .withOpacity(0.3),
-                                                blurRadius: 15)
-                                          ],
-                                          color: data.mainColor1,
-                                          border: Border.all(
-                                              color: Colors.white, width: 2),
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Container(
-                                          height: 85,
-                                          width: 85,
-                                          decoration: const BoxDecoration(
-                                              color: Colors.white,
-                                              shape: BoxShape.circle),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              child: Lottie.asset(categoryList[index]['image'],
+                    GridView.builder(
+                      primary: false,
+                      shrinkWrap: true,
+                      clipBehavior: Clip.none,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 1.1,
+                          crossAxisSpacing: 30,
+                          mainAxisSpacing: 30),
+                      itemCount: categoryList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 30.0),
+                          child: Container(
 
-                                                  fit: BoxFit.contain,
-                                              ),
+                            decoration: BoxDecoration(
+                              border:
+                              Border.all(color: Colors.white, width: 2),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 6,
+                                )
+                              ],
+                              color: data.mainColor1,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              alignment: Alignment.center,
+                              children: [
+                                Positioned(
+                                  top: -50,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.black
+                                                  .withOpacity(0.3),
+                                              blurRadius: 15)
+                                        ],
+                                        color: data.mainColor1,
+                                        border: Border.all(
+                                            color: Colors.white, width: 2),
+                                        shape: BoxShape.circle),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Container(
+                                        height: 85,
+                                        width: 85,
+                                        decoration: const BoxDecoration(
+                                            color: Colors.white,
+                                            shape: BoxShape.circle),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                            BorderRadius.circular(50),
+                                            child: Lottie.asset(
+                                              categoryList[index]['image'],
+                                              animate: false,
+                                              fit: BoxFit.contain,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  Positioned(
-                                    bottom: 10,
-                                    child: Container(
-                                      height: 25,
-                                      width: 120,
-                                      decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.white.withOpacity(0.2),
-                                                blurRadius: 15
-                                            )
-                                          ],
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: Center(
-                                        child: Text(
-                                          categoryList[index]['label'],
-                                          style: const TextStyle(
-                                              color: Colors.purple,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 12),
-                                        ),
+                                ),
+                                Positioned(
+                                  bottom: 10,
+                                  child: Container(
+                                    height: 25,
+                                    width: 120,
+                                    decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.white
+                                                  .withOpacity(0.2),
+                                              blurRadius: 15)
+                                        ],
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(30)),
+                                    child: Center(
+                                      child: Text(
+                                        categoryList[index]['label'],
+                                        style: const TextStyle(
+                                            color: Colors.purple,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12),
                                       ),
                                     ),
-                                  )
-                                ],
-                              ),
+                                  ),
+                                )
+                              ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
+
                     // Category End //
                   ],
                 ),
@@ -256,6 +258,41 @@ class HomeScreen extends StatelessWidget {
       //     ),
       //   ),
       // ),
+      //
+
+      bottomNavigationBar: Container(
+        width: mediaSize.width,
+        height: 80,
+
+        child: Stack(
+          children: [
+            CustomPaint(
+              size: Size(mediaSize.width, 80),
+              painter: NavBarPainter(),
+            )
+          ],
+        ),
+      ),
     );
   }
+}
+
+class NavBarPainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = Colors.black38..style = PaintingStyle.fill;
+    Path path = Path()..moveTo(0, 20);
+    path.quadraticBezierTo(size.width * 0.20, 0, size.width * 0.35, 0);
+    path.quadraticBezierTo(size.width * 0.40, 0, size.width*0.30, 20);
+    path.arcToPoint(Offset(size.width * 0.60, 20),
+    radius: Radius.circular(10), clockwise: false
+    );
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
+
 }

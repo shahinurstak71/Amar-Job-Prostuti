@@ -1,4 +1,5 @@
 import 'package:amar_jobprostuti/views/screens/home_screen.dart';
+import 'package:amar_jobprostuti/views/screens/onboarding/onBoarding_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const OnBoardingOne(),
 
     );
   }
