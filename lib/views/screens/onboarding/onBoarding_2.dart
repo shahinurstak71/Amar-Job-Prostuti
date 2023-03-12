@@ -11,6 +11,7 @@ class OnBoardingTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
     AppDetails data = AppDetails();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -18,7 +19,7 @@ class OnBoardingTwo extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/splash_bg.jpg'),
+                  image: AssetImage('assets/images/927819.jpg'),
                   opacity: 0.5,
                   fit: BoxFit.fill)),
           child: Padding(
@@ -61,15 +62,15 @@ class OnBoardingTwo extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Lottie.asset(data.onBoard_2, width: 250),
+                      Lottie.asset(data.onBoard_2, width: size <600 ? 250 : 320, animate: false),
                       const SizedBox(
                         height: 50,
                       ),
                       Text(
                         data.onBoardTitle_2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 28,
+                            fontSize: size <600?35:50,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Sabbir'),
                       ),
@@ -78,24 +79,24 @@ class OnBoardingTwo extends StatelessWidget {
                       ),
                       Text(
                         data.onBoardSubTitle_2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size <600? 20:25,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
                       Text(
                         data.onBoardSubTitle_2_2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size <600? 20 : 25,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 70,
+                  SizedBox(
+                    height: size <600? 70 : null,
                   ),
                   Container(
                     height: 80,

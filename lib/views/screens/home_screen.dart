@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     // Slider Start //
                     Container(
-                      height: 70,
+                      height: mediaSize.width<600?70:60,
                       width: mediaSize.width,
                       decoration: BoxDecoration(
                           border: Border.all(
@@ -58,15 +58,15 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           color: Colors.purple),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20),
                         child: Center(
                             child: Text(
                           data.headerText,
                           textAlign: TextAlign.justify,
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 17),
+                              fontSize: mediaSize.width<600?18:25),
                         )),
                       ),
                     ),
@@ -77,10 +77,11 @@ class HomeScreen extends StatelessWidget {
                     // Category Start //
                     Text(
                       data.selectCategory,
-                      style: const TextStyle(
+                      style: TextStyle(
+                        fontFamily: 'Sabbir',
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
+                          fontWeight: FontWeight.w400,
+                          fontSize: mediaSize.width<600?32:40),
                     ),
                     const SizedBox(
                       height: 60,
@@ -91,9 +92,9 @@ class HomeScreen extends StatelessWidget {
                       clipBehavior: Clip.none,
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.1,
+                      SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: mediaSize.width<600?2:3,
+                          childAspectRatio: mediaSize.width<600? 1.1 : 1.7,
                           crossAxisSpacing: 30,
                           mainAxisSpacing: 30),
                       itemCount: categoryList.length,
@@ -135,8 +136,8 @@ class HomeScreen extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: Container(
-                                        height: 85,
-                                        width: 85,
+                                        height: mediaSize.width<600? 100 : 125,
+                                        width: mediaSize.width<600? 100 : 125,
                                         decoration: const BoxDecoration(
                                             color: Colors.white,
                                             shape: BoxShape.circle),
@@ -147,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                                             BorderRadius.circular(50),
                                             child: Lottie.asset(
                                               categoryList[index]['image'],
-                                              animate: false,
+                                              animate: true,
                                               fit: BoxFit.contain,
                                             ),
                                           ),
@@ -159,8 +160,8 @@ class HomeScreen extends StatelessWidget {
                                 Positioned(
                                   bottom: 10,
                                   child: Container(
-                                    height: 25,
-                                    width: 120,
+                                    height: mediaSize.width<600?25: 30,
+                                    width: mediaSize.width<600? 150 : 250,
                                     decoration: BoxDecoration(
                                         boxShadow: [
                                           BoxShadow(
@@ -174,10 +175,10 @@ class HomeScreen extends StatelessWidget {
                                     child: Center(
                                       child: Text(
                                         categoryList[index]['label'],
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                             color: Colors.purple,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 12),
+                                            fontSize: mediaSize.width<600?17:23),
                                       ),
                                     ),
                                   ),
@@ -197,102 +198,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      //
-      // //
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Colors.red,
-      //   onPressed: (){},
-      //   child: Icon(Icons.home, size: 30,),),
-      //
-      // bottomNavigationBar: SafeArea(
-      //
-      //   child: Container(
-      //     margin: EdgeInsets.symmetric(horizontal: 24),
-      //     padding: EdgeInsets.all(12),
-      //     decoration: BoxDecoration(
-      //       borderRadius: BorderRadius.circular(30),
-      //       border: Border.all(
-      //           color: Colors.white
-      //       ),
-      //       boxShadow: [
-      //         BoxShadow(
-      //             color: Colors.white.withOpacity(0.3),
-      //             blurRadius: 3,
-      //             spreadRadius: 0.1)
-      //       ],
-      //       gradient: const LinearGradient(
-      //         begin: Alignment.topRight,
-      //         end: Alignment.bottomLeft,
-      //         colors: [
-      //           Colors.purple,
-      //           Colors.deepPurpleAccent,
-      //         ],
-      //       ),
-      //     ),
-      //     child: Row(
-      //       crossAxisAlignment: CrossAxisAlignment.center,
-      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //       children: [
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-      //
-
-      bottomNavigationBar: Container(
-        width: mediaSize.width,
-        height: 80,
-
-        child: Stack(
-          children: [
-            CustomPaint(
-              size: Size(mediaSize.width, 80),
-              painter: NavBarPainter(),
-            )
-          ],
-        ),
-      ),
     );
   }
-}
-
-class NavBarPainter extends CustomPainter{
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Colors.black38..style = PaintingStyle.fill;
-    Path path = Path()..moveTo(0, 20);
-    path.quadraticBezierTo(size.width * 0.20, 0, size.width * 0.35, 0);
-    path.quadraticBezierTo(size.width * 0.40, 0, size.width*0.30, 20);
-    path.arcToPoint(Offset(size.width * 0.60, 20),
-    radius: Radius.circular(10), clockwise: false
-    );
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-
 }

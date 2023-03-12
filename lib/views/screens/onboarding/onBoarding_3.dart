@@ -16,7 +16,7 @@ class OnBoardingThree extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/splash_bg.jpg'),
+                  image: AssetImage('assets/images/927819.jpg'),
                   opacity: 0.5,
                   fit: BoxFit.fill)),
           child: Padding(
@@ -47,9 +47,9 @@ class OnBoardingThree extends StatelessWidget {
                       ),
                       Text(
                         data.onBoardTitle_3,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 28,
+                            fontSize: size.width<600?35:50,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Sabbir'),
                       ),
@@ -58,28 +58,28 @@ class OnBoardingThree extends StatelessWidget {
                       ),
                       Text(
                         data.onBoardSubTitle_3,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size.width<600?20:30,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
                       Text(
                         data.onBoardSubTitle_3_2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size.width<600?20:30,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: size.width<600?30:null,
                   ),
-                  Lottie.asset(data.onBoard_1, width: 250),
-                  const SizedBox(
-                    height: 70,
+                  Lottie.asset(data.onBoard_1, width: size.width<600?250:300, animate: false),
+                  SizedBox(
+                    height: size.width<600?70:30,
                   ),
                   InkWell(
                     onTap: () {

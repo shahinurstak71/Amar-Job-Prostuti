@@ -9,6 +9,7 @@ class OnBoardingOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     AppDetails data = AppDetails();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -16,7 +17,7 @@ class OnBoardingOne extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/splash_bg.jpg'),
+                  image: AssetImage('assets/images/927819.jpg'),
                   opacity: 0.5,
                   fit: BoxFit.fill)),
           child: Padding(
@@ -56,9 +57,9 @@ class OnBoardingOne extends StatelessWidget {
                     children: [
                       Text(
                         data.onBoardTitle_1,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 28,
+                            fontSize: size.width < 600 ? 35 : 50,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Sabbir'),
                       ),
@@ -67,17 +68,17 @@ class OnBoardingOne extends StatelessWidget {
                       ),
                       Text(
                         data.onBoardSubTitle_1,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size.width < 600 ? 20 : 30,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
                       Text(
                         data.onBoardSubTitle_1_2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: size.width < 600 ? 20 : 30,
                             fontWeight: FontWeight.w100,
                             fontFamily: 'Maina'),
                       ),
@@ -86,9 +87,9 @@ class OnBoardingOne extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Lottie.asset(data.onBoard_3, width: 300, animate: false),
-                  const SizedBox(
-                    height: 50,
+                  Lottie.asset(data.onBoard_3, width: size.width < 600 ? 350 : 400, animate: false),
+                  SizedBox(
+                    height: size.width < 600 ? 50 : 40,
                   ),
                   Container(
                     height: 80,

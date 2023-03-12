@@ -48,8 +48,9 @@ Widget customAppBar(Size mediaSize, data) {
           ),
           Text(data.appName, style: TextStyle(
             color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.bold
+            fontSize: 35,
+            fontFamily: 'Sabbir',
+            fontWeight: FontWeight.w300
           ),),
 
           const CircleAvatar(
