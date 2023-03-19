@@ -1,13 +1,14 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
-Widget customAppBar(Size mediaSize, data) {
+
+Widget customAppBar(BuildContext context, Size mediaSize, data, GlobalKey<ScaffoldState> _drawerKey) {
   return Container(
     height: 60,
     width: mediaSize.width,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(30),
-      border: Border.all(
-        color: Colors.white
-      ),
+      border: Border.all(color: Colors.white),
       boxShadow: [
         BoxShadow(
             color: Colors.white.withOpacity(0.3),
@@ -35,23 +36,23 @@ Widget customAppBar(Size mediaSize, data) {
             height: 40,
             width: 40,
             decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle
-            ),
+                color: Colors.white, shape: BoxShape.circle),
             child: IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.menu,
+              onPressed: () {
+                _drawerKey.currentState?.openDrawer();
+              },
+              icon: const Icon(
+                Icons.menu,
                 color: Colors.black,
                 size: 25,
               ),
             ),
           ),
-          Text(data.appName, style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.bold
-          ),),
-
+          Text(
+            data.appName,
+            style: TextStyle(
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+          ),
           const CircleAvatar(
             backgroundImage: AssetImage('assets/icons/myAccount.png'),
           ),

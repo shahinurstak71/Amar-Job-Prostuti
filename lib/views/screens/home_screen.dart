@@ -12,23 +12,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaSize = MediaQuery.of(context).size;
     final AppDetails data = AppDetails();
+    final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
     return Scaffold(
+      key: _drawerKey,
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.deepPurple,
-                Colors.purple,
-              ],
-            ),
-            // This is Image
-            image: DecorationImage(
-                image: NetworkImage(
-                    'https://preview.redd.it/k35gae3somo41.png?auto=webp&s=07154e8f6b16a8480a5106f2cd62d3f12197f061'),
-                fit: BoxFit.fill,
-                opacity: 0.7)),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.deepPurple,
+              Colors.purple,
+            ],
+          ),
+          // This is Image
+        ),
         child: SafeArea(
           child: Center(
             child: Padding(
@@ -42,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     // AppBar Start //
-                    customAppBar(mediaSize, data),
+                    customAppBar(context, mediaSize, data, _drawerKey),
                     // App Bar End //
                     const SizedBox(
                       height: 20,
@@ -144,9 +142,9 @@ class HomeScreen extends StatelessWidget {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(50),
-                                              child: Lottie.asset(categoryList[index]['image'],
-
-                                                  fit: BoxFit.contain,
+                                              child: Lottie.asset(
+                                                categoryList[index]['image'],
+                                                fit: BoxFit.contain,
                                               ),
                                             ),
                                           ),
@@ -162,9 +160,9 @@ class HomeScreen extends StatelessWidget {
                                       decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
-                                                color: Colors.white.withOpacity(0.2),
-                                                blurRadius: 15
-                                            )
+                                                color: Colors.white
+                                                    .withOpacity(0.2),
+                                                blurRadius: 15)
                                           ],
                                           color: Colors.white,
                                           borderRadius:
@@ -195,67 +193,137 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      //
-      // //
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Colors.red,
-      //   onPressed: (){},
-      //   child: Icon(Icons.home, size: 30,),),
-      //
-      // bottomNavigationBar: SafeArea(
-      //
-      //   child: Container(
-      //     margin: EdgeInsets.symmetric(horizontal: 24),
-      //     padding: EdgeInsets.all(12),
-      //     decoration: BoxDecoration(
-      //       borderRadius: BorderRadius.circular(30),
-      //       border: Border.all(
-      //           color: Colors.white
-      //       ),
-      //       boxShadow: [
-      //         BoxShadow(
-      //             color: Colors.white.withOpacity(0.3),
-      //             blurRadius: 3,
-      //             spreadRadius: 0.1)
-      //       ],
-      //       gradient: const LinearGradient(
-      //         begin: Alignment.topRight,
-      //         end: Alignment.bottomLeft,
-      //         colors: [
-      //           Colors.purple,
-      //           Colors.deepPurpleAccent,
-      //         ],
-      //       ),
-      //     ),
-      //     child: Row(
-      //       crossAxisAlignment: CrossAxisAlignment.center,
-      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //       children: [
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //         SizedBox(
-      //           height: 36,
-      //           width: 36,
-      //           child: Image.asset('assets/icons/home.png', color: Colors.white,),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
+      drawer: Drawer(
+        width: MediaQuery.of(context).size.width * 0.7,
+        child: Column(
+          children: [
+            Container(
+              height: 250,
+              width: MediaQuery.of(context).size.width,
+               decoration: BoxDecoration(
+                 image: DecorationImage(
+                     fit: BoxFit.fill,
+                     image: AssetImage("assets/images/bgImage.png",
+
+                 )),
+
+
+
+               ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: CircleAvatar(
+                        backgroundColor: Colors.white,
+
+                        backgroundImage:  AssetImage("assets/icons/myAccount.png"),
+
+                         radius: 70,
+                     ),
+                   ),
+
+                   ListTile(
+                     title: Text("Mohammad",style: TextStyle(fontSize: 20,color: Colors.white)),
+                     subtitle: Row(
+                       children: [
+                              Text("265 Followers",style:TextStyle(color: Colors.white) ),
+                               Padding(
+                                 padding: const EdgeInsets.all(8.0),
+                                 child: Icon( Icons.person_search_rounded,color: Colors.white,),
+                               )
+                       ],
+                     ),
+                   ),
+
+
+
+
+
+                ],
+              ),
+              
+              
+            ),
+
+            ListView(
+              primary: false,
+              shrinkWrap: true,
+
+              children: [
+                ListTile(
+                  leading: Icon(Icons.subscriptions_outlined,color: Colors.blue),
+                  title: Text("SUBSCRIPTION",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+
+                ListTile(
+                  leading: Icon(Icons.payment,color: Colors.blue),
+                  title: Text("WAITING PAYMENT",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.notifications_active,color: Colors.blue),
+                  title: Text("NOTICE",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.library_books_sharp,color: Colors.blue),
+                  title: Text("MERIT LIST",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.insert_drive_file,color: Colors.blue),
+                  title: Text("RECENT INFORMATION",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.edit_calendar,color: Colors.blue),
+                  title: Text("EDITORIAL",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+                ListTile(
+                  leading: Icon(Icons.menu_book_sharp,color: Colors.blue),
+                  title: Text("QUESTION ARCHIVED",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                trailing: Icon(Icons.arrow_forward_ios,color: Colors.black),
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.black.withOpacity(0.3),
+                ),
+
+              ],
+            ),
+
+          ],
+        ),
+      ),
     );
   }
 }
