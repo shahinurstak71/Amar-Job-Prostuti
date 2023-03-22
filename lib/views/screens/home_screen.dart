@@ -92,114 +92,114 @@ class HomeScreen extends StatelessWidget {
 
                     // {dropdownValue ? Colors.transparent : Colors.red,},
                     // dropdownValue = "✨ ক্যাটাগরি নির্বাচন করুন ✨"
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      SizedBox(
-                        height: 600,
-                        child: GridView.builder(
-                          clipBehavior: Clip.none,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 1.1,
-                              crossAxisSpacing: 30,
-                              mainAxisSpacing: 30),
-                          itemCount: 6,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 30.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border:
-                                  Border.all(color: Colors.white, width: 2),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      blurRadius: 6,
-                                    )
-                                  ],
-                                  color: data.mainColor1,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Stack(
-                                  clipBehavior: Clip.none,
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Positioned(
-                                      top: -50,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Colors.black
-                                                      .withOpacity(0.3),
-                                                  blurRadius: 15)
-                                            ],
-                                            color: data.mainColor1,
-                                            border: Border.all(
-                                                color: Colors.white, width: 2),
-                                            shape: BoxShape.circle),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Container(
-                                            height: 85,
-                                            width: 85,
-                                            decoration: const BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                BorderRadius.circular(50),
-                                                child: Lottie.asset(categoryList[index]['image'],
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    SizedBox(
+                      height: 600,
+                      child: GridView.builder(
+                        clipBehavior: Clip.none,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1.1,
+                            crossAxisSpacing: 30,
+                            mainAxisSpacing: 30),
+                        itemCount: 6,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 30.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border:
+                                Border.all(color: Colors.white, width: 2),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    blurRadius: 6,
+                                  )
+                                ],
+                                color: data.mainColor1,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                alignment: Alignment.center,
+                                children: [
+                                  Positioned(
+                                    top: -50,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.3),
+                                                blurRadius: 15)
+                                          ],
+                                          color: data.mainColor1,
+                                          border: Border.all(
+                                              color: Colors.white, width: 2),
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Container(
+                                          height: 85,
+                                          width: 85,
+                                          decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              shape: BoxShape.circle),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                              BorderRadius.circular(50),
+                                              child: Lottie.asset(categoryList[index]['image'],
 
-                                                  fit: BoxFit.contain,
-                                                ),
+                                                fit: BoxFit.contain,
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                    Positioned(
-                                      bottom: 10,
-                                      child: Container(
-                                        height: 25,
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Colors.white.withOpacity(0.2),
-                                                  blurRadius: 15
-                                              )
-                                            ],
-                                            color: Colors.white,
-                                            borderRadius:
-                                            BorderRadius.circular(30)),
-                                        child: Center(
-                                          child: Text(
-                                            categoryList[index]['label'],
-                                            style: const TextStyle(
-                                                color: Colors.purple,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
-                                          ),
+                                  ),
+                                  Positioned(
+                                    bottom: 10,
+                                    child: Container(
+                                      height: 25,
+                                      width: 120,
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.white.withOpacity(0.2),
+                                                blurRadius: 15
+                                            )
+                                          ],
+                                          color: Colors.white,
+                                          borderRadius:
+                                          BorderRadius.circular(30)),
+                                      child: Center(
+                                        child: Text(
+                                          categoryList[index]['label'],
+                                          style: const TextStyle(
+                                              color: Colors.purple,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
                       ),
-                    ],
+                    ),
+                  ],
 
-                    // Category End //
+                  // Category End //
                   // ],
                 ),
               ),
@@ -321,8 +321,8 @@ class _DropdowmWidgetsState extends State<DropdowmWidgets> {
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 ),
-                  // overflow: TextOverflow.ellipsis,
-                ),
+                // overflow: TextOverflow.ellipsis,
+              ),
 
             ],
           ),
@@ -347,13 +347,13 @@ class _DropdowmWidgetsState extends State<DropdowmWidgets> {
           ),
 
           dropdownStyleData: DropdownStyleData(
-              // maxHeight: 200,
-              // width: 200,
-              padding: null,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                color: Colors.deepPurple,
-              ),
+            // maxHeight: 200,
+            // width: 200,
+            padding: null,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              color: Colors.deepPurple,
+            ),
 
           ),
 

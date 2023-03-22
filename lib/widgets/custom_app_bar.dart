@@ -6,7 +6,7 @@ Widget customAppBar(Size mediaSize, data) {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(30),
       border: Border.all(
-        color: Colors.white
+          color: Colors.white
       ),
       boxShadow: [
         BoxShadow(
@@ -47,9 +47,9 @@ Widget customAppBar(Size mediaSize, data) {
             ),
           ),
           Text(data.appName, style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.bold
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.bold
           ),),
 
           const CircleAvatar(
